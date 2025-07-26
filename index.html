@@ -30,17 +30,20 @@
 </head>
 <body>
     <!-- Preloader -->
-    <div class="preloader fixed inset-0 w-full h-full bg-gray-900 z-50 flex items-center justify-center flex-col">
+    <div class="preloader fixed inset-0 w-full h-full bg-gray-900 z-50 flex items-center justify-center">
         <div class="preloader-content text-center">
-            <div class="preloader-logo text-2xl md:text-3xl font-bold mb-8 text-white animate-pulse">My Portfolio</div>
-            <div class="preloader-spinner relative w-24 h-24 flex items-center justify-center mb-4">
-                <div class="spinner-circle absolute w-full h-full border-4 border-transparent border-t-teal-500 border-r-teal-500 rounded-full animate-spin"></div>
-                <div class="spinner-text text-white font-medium text-sm">0%</div>
+            <!-- Loading text with animated dots -->
+            <div class="preloader-text text-teal-300 text-lg font-medium tracking-wider mb-6">
+                Loading<span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span>
             </div>
-            <div class="progress-container w-48 h-1 bg-teal-500/30 rounded-full mt-4 overflow-hidden">
-                <div class="progress-bar-fill h-full bg-gradient-to-r from-teal-500 to-green-500 transition-all duration-300 ease-out" style="width: 0%"></div>
+            <!-- Progress bar -->
+            <div class="w-64 h-1.5 bg-gray-800 rounded-full overflow-hidden mx-auto">
+                <div class="progress-bar h-full bg-gradient-to-r from-teal-500 to-green-500 transition-all duration-300 ease-out" style="width: 0%"></div>
             </div>
-            <div class="preloader-text text-gray-400 mt-4 text-sm">Loading your experience</div>
+            <!-- Progress percentage -->
+            <div class="mt-3">
+                <span class="spinner-text text-teal-400 font-mono text-sm">0%</span>
+            </div>
         </div>
     </div>
     
@@ -357,7 +360,7 @@
                         <i class="fas fa-paper-plane mr-2"></i> Hire Me
                     </a>
                     <a href="#" class="flex-1 bg-gray-700/50 border border-gray-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-gray-600/50 transition-all duration-300 text-center transform hover:-translate-y-0.5">
-                        <i class="fas fa-download mr-2"></i> Download CV
+                        <i class="fas fa-download mr-2"></i> Download Resume
                     </a>
                 </div>
             </div>
@@ -401,15 +404,15 @@
                 <!-- Project items will be added dynamically via JavaScript -->
                 <div class="project-item bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 transition-all duration-500 hover:border-teal-500/50 hover:shadow-lg hover:shadow-teal-500/10" data-category="web">
                     <div class="project-image relative overflow-hidden">
-                        <img src="https://via.placeholder.com/600x400/2d2d2d/ffffff?text=Project+1" alt="Project 1" class="w-full h-56 object-cover transition-transform duration-700 hover:scale-110">
+                        <img src="./images/pro1.jpeg" alt="Project 1" class="w-full h-56 object-cover transition-transform duration-700 hover:scale-110">
                         <div class="project-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                             <div>
-                                <h3 class="text-xl font-bold text-white mb-2">E-commerce Website</h3>
-                                <p class="text-gray-300 text-sm mb-4">A fully responsive e-commerce platform with product filtering and cart functionality.</p>
+                                <h3 class="text-xl font-bold text-white mb-2">Energy Usage Tracker</h3>
+                                <p class="text-gray-300 text-sm mb-4">A web application for tracking energy usage and generating reports.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-400 text-xs rounded-full">React</span>
-                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-400 text-xs rounded-full">Node.js</span>
-                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-400 text-xs rounded-full">MongoDB</span>
+                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-400 text-xs rounded-full">HTML5 CSS3</span>
+                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-400 text-xs rounded-full">JavaScript</span>
+                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-400 text-xs rounded-full">Flask</span>
                                 </div>
                             </div>
                         </div>
@@ -417,14 +420,14 @@
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
                             <div>
-                                <h3 class="text-xl font-bold text-white">E-commerce Website</h3>
-                                <p class="text-sm text-gray-400">Web Design</p>
+                                <h3 class="text-xl font-bold text-white">Energy Usage Tracker</h3>
+                                <p class="text-sm text-gray-400">Web Application</p>
                             </div>
-                            <a href="#" class="text-gray-400 hover:text-teal-400 transition-colors duration-300" aria-label="View project">
+                            <a href="https://jeswin2112.github.io/energy_tracker/" class="text-gray-400 hover:text-teal-400 transition-colors duration-300" aria-label="View project">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
-                        <p class="text-gray-400 text-sm">A modern e-commerce platform with a focus on user experience and performance.</p>
+                        <p class="text-gray-400 text-sm">A web application for tracking energy usage and generating reports.</p>
                     </div>
                 </div>
                 
@@ -558,26 +561,7 @@
                                 <p class="text-slate-400">Kerala, India</p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="pt-4">
-                        <h4 class="text-slate-200 font-medium mb-4">Follow Me</h4>
-                        <div class="flex space-x-3">
-                            <a href="#" class="w-11 h-11 rounded-xl bg-slate-800/50 backdrop-blur-sm flex items-center justify-center text-slate-300 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-500 hover:text-white hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 border border-slate-800/50 hover:border-cyan-500/30" aria-label="Twitter">
-                                <i class="fab fa-twitter text-lg"></i>
-                            </a>
-                            <a href="#" class="w-11 h-11 rounded-xl bg-slate-800/50 backdrop-blur-sm flex items-center justify-center text-slate-300 hover:bg-gradient-to-br hover:from-indigo-500 hover:to-purple-500 hover:text-white hover:shadow-lg hover:shadow-indigo-500/20 transition-all duration-300 border border-slate-800/50 hover:border-indigo-500/30" aria-label="GitHub">
-                                <i class="fab fa-github text-lg"></i>
-                            </a>
-                            <a href="#" class="w-11 h-11 rounded-xl bg-slate-800/50 backdrop-blur-sm flex items-center justify-center text-slate-300 hover:bg-gradient-to-br hover:from-blue-500 hover:to-cyan-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 border border-slate-800/50 hover:border-blue-500/30" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin-in text-lg"></i>
-                            </a>
-                            <a href="#" class="w-11 h-11 rounded-xl bg-slate-800/50 backdrop-blur-sm flex items-center justify-center text-slate-300 hover:bg-gradient-to-br hover:from-rose-500 hover:to-pink-500 hover:text-white hover:shadow-lg hover:shadow-rose-500/20 transition-all duration-300 border border-slate-800/50 hover:border-rose-500/30" aria-label="Dribbble">
-                                <i class="fab fa-dribbble text-lg"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
+                    </div>                    
                     <div class="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl mt-8 border border-slate-800/50">
                         <div class="flex items-center space-x-3 mb-4">
                             <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
@@ -669,9 +653,9 @@
     <footer class="bg-slate-900/95 backdrop-blur-md border-t border-slate-800/50 relative overflow-hidden">
         <!-- Background elements -->
         <div class="absolute top-0 left-0 w-full h-full -z-10">
-            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-600/10 rounded-full filter blur-3xl"></div>
-            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-rose-600/10 rounded-full filter blur-3xl"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/5 rounded-full filter blur-3xl"></div>
+            <div class="absolute top-1/4 left-[15%] w-96 h-96 bg-indigo-600/10 rounded-full filter blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-[15%] w-96 h-96 bg-rose-600/10 rounded-full filter blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/3 rounded-full filter blur-3xl"></div>
         </div>
         
         <div class="container mx-auto px-6 py-16">
@@ -686,7 +670,7 @@
                 
                 <!-- Copyright -->
                 <p class="text-slate-400 text-sm mb-8 lg:mb-0 text-center lg:text-left" data-aos="fade-up" data-aos-delay="100">
-                    &copy; <span class="current-year">2023</span> Jeswin. All rights reserved.
+                    &copy; <span class="current-year">2025</span> Jeswin. All rights reserved.
                 </p>
                 
                 <!-- Navigation Links -->
@@ -722,57 +706,16 @@
                     <a href="#" class="text-slate-400 hover:text-white hover:bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20" aria-label="Twitter">
                         <i class="fab fa-twitter text-lg"></i>
                     </a>
-                    <a href="#" class="text-slate-400 hover:text-white hover:bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20" aria-label="GitHub">
+                    <a href="https://github.com/jeswin2112" class="text-slate-400 hover:text-white hover:bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20" aria-label="GitHub">
                         <i class="fab fa-github text-lg"></i>
                     </a>
-                    <a href="#" class="text-slate-400 hover:text-white hover:bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/jeswin-giss-1a9b81297" class="text-slate-400 hover:text-white hover:bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in text-lg"></i>
                     </a>
-                    <a href="#" class="text-slate-400 hover:text-white hover:bg-gradient-to-br from-cyan-400 to-blue-500 p-2 rounded-full transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-500/20" aria-label="Dribbble">
-                        <i class="fab fa-dribbble text-lg"></i>
-                    </a>
                 </div>
             </div>
             
-            <!-- Divider -->
-            <div class="border-t border-gray-800 my-8"></div>
-            
-            <!-- Bottom Bar -->
-            <div class="flex flex-col md:flex-row justify-between items-center pt-6">
-                <!-- Social Links -->
-                <div class="flex space-x-4 mb-4 md:mb-0">
-                    <a href="https://github.com/jeswin2112" target="_blank" rel="noopener noreferrer" 
-                       class="w-9 h-9 rounded-full bg-gray-800 hover:bg-teal-500 text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
-                       aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
-                       class="w-9 h-9 rounded-full bg-gray-800 hover:bg-teal-500 text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
-                       aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" 
-                       class="w-9 h-9 rounded-full bg-gray-800 hover:bg-teal-500 text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
-                       aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" 
-                       class="w-9 h-9 rounded-full bg-gray-800 hover:bg-teal-500 text-white flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
-                       aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-                
-                <!-- Back to Top Button -->
-                <button id="backToTop" 
-                        class="group flex items-center text-gray-400 hover:text-teal-400 transition-colors duration-300 text-sm font-medium"
-                        aria-label="Back to top">
-                    <span class="mr-2">Back to top</span>
-                    <svg class="w-4 h-4 group-hover:translate-y-[-3px] transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-                    </svg>
-                </button>
-            </div>
+
         </div>
     </footer>
 

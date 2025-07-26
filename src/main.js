@@ -48,37 +48,82 @@ function initPageTransition() {
     });
 }
 
-// Preloader functionality with progress bar
+// Preloader functionality with enhanced animations
 function initPreloader() {
     const preloader = document.querySelector('.preloader');
+    const progressBar = document.querySelector('.progress-bar');
+    const progressText = document.querySelector('.spinner-text');
+    
     if (!preloader) return;
 
-    const progressBar = preloader.querySelector('.progress-bar');
-    const progressText = preloader.querySelector('.spinner-text');
-    let width = 0;
-    
-    // Simulate loading
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
-            gsap.to(preloader, {
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power2.inOut',
-                onComplete: () => {
-                    preloader.style.display = 'none';
-                    document.body.style.overflow = 'visible';
-                    // Initialize page animations after preloader
-                    initPageAnimations();
-                }
-            });
-        } else {
-            width += Math.random() * 10 + 1;
-            if (width > 100) width = 100;
-            if (progressBar) progressBar.style.width = `${width}%`;
-            if (progressText) progressText.textContent = `${Math.floor(width)}%`;
+    let progress = 0;
+    const totalSteps = 100;
+    const minStep = 2;
+    const maxStep = 10;
+    let animationFrame;
+
+    // Simulate loading with variable speed
+    const simulateLoading = () => {
+        // Random step to make progress more natural
+        const step = Math.random() * (maxStep - minStep) + minStep;
+        progress = Math.min(progress + step, 100);
+        
+        // Update progress bar and text
+        if (progressBar) {
+            progressBar.style.width = `${progress}%`;
+            progressBar.style.opacity = 0.7 + (progress / 100) * 0.3; // Fade in as it progresses
         }
-    }, 50);
+        
+        if (progressText) {
+            progressText.textContent = `${Math.floor(progress)}%`;
+        }
+
+        // Add a slight bounce effect when reaching 100%
+        if (progress >= 100) {
+            cancelAnimationFrame(animationFrame);
+            setTimeout(completeLoading, 500);
+        } else {
+            // Slow down as we approach 100%
+            const delay = 30 + (progress / 100) * 50;
+            setTimeout(() => {
+                animationFrame = requestAnimationFrame(simulateLoading);
+            }, delay);
+        }
+    };
+
+    const completeLoading = () => {
+        // Add fade-out class to trigger the fade-out animation
+        preloader.classList.add('fade-out');
+        
+        // Remove preloader from DOM after animation completes
+        setTimeout(() => {
+            preloader.style.display = 'none';
+            document.body.style.overflow = 'visible';
+            // Initialize page animations after preloader
+            initPageAnimations();
+        }, 800); // Match this with the CSS transition duration
+    };
+
+    // Start loading simulation after a short delay
+    setTimeout(() => {
+        animationFrame = requestAnimationFrame(simulateLoading);
+    }, 300);
+
+    // Fallback in case loading takes too long
+    const loadingTimeout = setTimeout(() => {
+        if (progress < 100) {
+            progress = 100;
+            if (progressBar) progressBar.style.width = '100%';
+            if (progressText) progressText.textContent = '100%';
+            completeLoading();
+        }
+    }, 5000); // Max 5 seconds loading time
+
+    // Clean up if component unmounts
+    return () => {
+        cancelAnimationFrame(animationFrame);
+        clearTimeout(loadingTimeout);
+    };
 }
 
 // Initialize page animations
