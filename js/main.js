@@ -191,6 +191,27 @@ function initContactForm() {
     const subjectInput = document.getElementById('subject');
     const messageInput = document.getElementById('message');
     const formMessage = document.getElementById('form-message');
+    
+    // Handle placeholder visibility on input
+    const handleInput = (input, label) => {
+        if (input.value.trim() !== '') {
+            input.nextElementSibling.classList.add('hidden');
+        } else {
+            input.nextElementSibling.classList.remove('hidden');
+        }
+    };
+    
+    // Initialize placeholders
+    [nameInput, emailInput, subjectInput, messageInput].forEach(input => {
+        if (input) {
+            // Add event listeners for input and blur
+            input.addEventListener('input', () => handleInput(input));
+            input.addEventListener('blur', () => handleInput(input));
+            
+            // Initialize state
+            handleInput(input);
+        }
+    });
 
     // Form submission handler
     contactForm.addEventListener('submit', async (e) => {
@@ -251,10 +272,50 @@ function initContactForm() {
     }
 }
 
+// Update current year in footer
+function updateCurrentYear() {
+    const yearElement = document.querySelector('.current-year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+}
+
+// Back to top functionality
+function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+    
+    // Show/hide button on scroll
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        } else {
+            backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        }
+    });
+    
+    // Smooth scroll to top
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize GSAP and ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
+    
+    // Update current year
+    updateCurrentYear();
+    
+    // Initialize back to top button
+    initBackToTop();
     
     // Initialize preloader
     initPreloader();
@@ -442,13 +503,17 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-            navbar.style.padding = '1.5rem 0';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            navbar.style.background = 'rgba(15, 23, 42, 0.9)';
+            navbar.style.backdropFilter = 'blur(12px)';
+            navbar.style.padding = '1rem 0';
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            navbar.style.borderBottom = '1px solid rgba(148, 163, 184, 0.1)';
         } else {
-            navbar.style.background = 'transparent';
-            navbar.style.padding = '2rem 0';
+            navbar.style.background = 'rgba(15, 23, 42, 0.5)';
+            navbar.style.backdropFilter = 'blur(8px)';
+            navbar.style.padding = '1.5rem 0';
             navbar.style.boxShadow = 'none';
+            navbar.style.borderBottom = '1px solid transparent';
         }
     });
 });
