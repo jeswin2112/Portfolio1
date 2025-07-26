@@ -3,53 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-        .choices {
-            margin: 20px 0;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            margin: 0 10px;
-            cursor: pointer;
-        }
-        #result {
-            margin: 20px 0;
-            font-size: 20px;
-            min-height: 30px;
-        }
-        #score {
-            font-size: 18px;
-            margin: 20px 0;
-        }
-        #game-over {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 20px 0;
-            color: #2c3e50;
-        }
-    </style>
+    <title>Jeswin Giss</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <div class="choices">
-        <button id="rock">✊ Rock</button>
-        <button id="paper">✋ Paper</button>
-        <button id="scissors">✌️ Scissors</button>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">My Portfolio</div>
+            <div class="preloader-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-text">0%</div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="preloader-text">Loading your experience</div>
+        </div>
     </div>
-    <div id="result">Choose your move!</div>
-    <div id="score">You: 0 - Computer: 0</div>
-    <div id="game-over"></div>
-    <button id="reset" style="display: none;">Play Again</button>
+    
+    <!-- Page Transition Overlay -->
+    <div class="page-transition">
+        <div class="transition-overlay"></div>
+    </div>
+    
+    <div class="cursor"></div>
+    
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Portfolio</a>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <script src="script.js"></script>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="animate-text">Hi, I'm <span class="highlight">Jeswin</span></h1>
+                    <h2 class="animate-text" data-delay="0.2">Web Developer & Designer</h2>
+                    <p class="animate-text" data-delay="0.4">I create beautiful, responsive websites with a focus on user experience and clean code. Passionate about turning ideas into reality through web development.</p>
+                    <div class="cta-buttons animate-text" data-delay="0.6">
+                        <a href="#work" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container">
+                        <img src="https://via.placeholder.com/400x500/2d2d2d/ffffff?text=Your+Photo" alt="Jeswin" class="profile-image">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>I'm a passionate web developer with expertise in creating modern, responsive websites and web applications. With a strong foundation in front-end technologies, I bring ideas to life through clean, efficient code and intuitive user interfaces.</p>
+                    
+                    <div class="skills">
+                        <h3>My Skills</h3>
+                        <div class="skills-container">
+                            <div class="skill">
+                                <span class="skill-name">HTML5 & CSS3</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">JavaScript</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">React</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%;"></div>
+                                </div>
+                            </div>
+                            <div class="skill">
+                                <span class="skill-name">UI/UX Design</span>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="floating-shape"></div>
+                    <img src="https://via.placeholder.com/400x500/2d2d2d/ffffff?text=About+Me" alt="About Me" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <div class="container">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="projects-grid">
+                <!-- Projects will be added dynamically via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+            <p class="section-subtitle">Have a project in mind or want to chat? Feel free to reach out!</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:jeswingiss2112@gmail.com">jeswingiss2112@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:+1234567890">+91 9400300489</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Kerala, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Your Email</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required>
+                        <label for="subject">Subject</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                        <span class="focus-border"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="current-year">2024</span> Jeswin. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#work" class="footer-link">Work</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
