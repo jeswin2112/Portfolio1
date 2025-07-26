@@ -34,6 +34,38 @@
     }
 }
 
+/* Custom cursor styles */
+@layer base {
+    .cursor {
+        @apply fixed w-6 h-6 rounded-full pointer-events-none z-50;
+        background-color: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        transition: transform 0.1s ease, background-color 0.2s ease, border-color 0.2s ease;
+        will-change: transform;
+    }
+
+    .cursor.cursor-hover {
+        @apply transform scale-150;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: #fff;
+    }
+}
+
+/* Hide default cursor */
+html, body {
+    cursor: none;
+}
+
+/* Show default cursor for interactive elements when custom cursor is disabled */
+html.disable-custom-cursor,
+html.disable-custom-cursor body {
+    cursor: auto;
+}
+
+html.disable-custom-cursor .cursor {
+    display: none;
+}
+
 /* Custom components */
 @layer components {
     /* Buttons */
@@ -177,4 +209,16 @@
 
 .animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Ensure smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hide back to top button on print */
+@media print {
+    #backToTop {
+        display: none !important;
+    }
 }

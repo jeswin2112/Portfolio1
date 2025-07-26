@@ -191,8 +191,91 @@ function initSmoothScrolling() {
     });
 }
 
+// Initialize cursor
+function initCursor() {
+    const cursor = document.querySelector('.cursor');
+    
+    // Only proceed if cursor element exists
+    if (!cursor) return;
+    
+    // Hide cursor initially
+    cursor.style.opacity = 0;
+    document.body.style.cursor = 'none';
+    
+    // Mouse move event
+    document.addEventListener('mousemove', (e) => {
+        // Update cursor position
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+        cursor.style.opacity = 1;
+        
+        // Add hover effect on interactive elements
+        const target = e.target;
+        const isInteractive = target.matches('a, button, [role="button"], input, textarea, select, [tabindex]');
+        
+        if (isInteractive) {
+            cursor.classList.add('cursor-hover');
+        } else {
+            cursor.classList.remove('cursor-hover');
+        }
+    });
+    
+    // Hide cursor when leaving the window
+    document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = 0;
+    });
+    
+    // Show cursor when returning to the window
+    document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = 1;
+    });
+}
+
+// Initialize back to top button
+function initBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+    
+    // Return early if button doesn't exist
+    if (!backToTopButton) return;
+    
+    // Show/hide button based on scroll position
+    function toggleBackToTop() {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('opacity-100', 'translate-y-0');
+            backToTopButton.classList.remove('opacity-0', 'translate-y-4');
+        } else {
+            backToTopButton.classList.remove('opacity-100', 'translate-y-0');
+            backToTopButton.classList.add('opacity-0', 'translate-y-4');
+        }
+    }
+    
+    // Scroll to top function
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Add event listeners
+    window.addEventListener('scroll', toggleBackToTop);
+    backToTopButton.addEventListener('click', scrollToTop);
+    
+    // Initial check
+    toggleBackToTop();
+}
+
 // Initialize everything when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize GSAP and ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Initialize cursor
+    initCursor();
+    
+    // Initialize back to top button
+    initBackToTop();
+    
     // Initialize page transition
     initPageTransition();
     
