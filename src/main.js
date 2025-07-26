@@ -132,7 +132,7 @@ function initPageAnimations() {
 
 // Contact Form Handling
 function initContactForm() {
-    const contactForm = document.querySelector('.contact-form');
+    const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
 
     contactForm.addEventListener('submit', async (e) => {
@@ -164,10 +164,17 @@ function initContactForm() {
             
         } catch (error) {
             console.error('Error submitting form:', error);
-            alert('There was an error sending your message. Please try again later.');
+            const errorMsg = document.createElement('div');
+            errorMsg.className = 'mt-4 p-4 bg-red-100 text-red-800 rounded-lg';
+            errorMsg.textContent = 'There was an error sending your message. Please try again later.';
+            contactForm.appendChild(errorMsg);
+            
+            setTimeout(() => {
+                errorMsg.remove();
+            }, 5000);
         } finally {
             submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
+            submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane ml-2"></i>';
         }
     });
 }
