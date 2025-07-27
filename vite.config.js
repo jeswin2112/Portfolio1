@@ -1,18 +1,9 @@
-const { defineConfig } = require('vite');
-const path = require('path');
-const { nodePolyfills } = require('vite-plugin-node-polyfills');
+import { defineConfig } from 'vite';
+import path from 'path';
 
-module.exports = defineConfig({
+export default defineConfig({
   root: '.',
   publicDir: 'public',
-  plugins: [
-    nodePolyfills({
-      // To exclude specific polyfills, add them to this list
-      exclude: [],
-      // Whether to polyfill `node:` protocol imports.
-      protocolImports: true,
-    }),
-  ],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

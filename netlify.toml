@@ -1,14 +1,12 @@
+[build.environment]
+  # Use Node.js 18 LTS for better stability
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
 [build]
-  # Directory to change to before starting a build
   base = "/"
-  # Directory that contains the deploy-ready HTML files and assets
   publish = "dist"
-  # Default build command
-  command = "npm run netlify-build"
-  # Node.js version to use for build
-  NODE_VERSION = "20"
-  # NPM version to use for build
-  NPM_VERSION = "10"
+  command = "npm install && npm run build"
 
 [functions]
   # Directory where Netlify will look for your functions

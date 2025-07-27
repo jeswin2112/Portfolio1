@@ -2,19 +2,17 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "Personal portfolio website",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "netlify-build": "npm install && npm run build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",
     "@tailwindcss/forms": "^0.5.6",
     "gsap": "^3.12.2",
-    "tailwindcss": "^3.4.0",
-    "vite-plugin-node-polyfills": "^0.17.0"
+    "tailwindcss": "^3.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
