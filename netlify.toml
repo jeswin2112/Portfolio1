@@ -4,9 +4,9 @@
   command = "npm install && npm run build"
 
 [build.environment]
-  # Use Node.js 18 LTS for better stability
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
+  # Using Node.js 20 for Vite and Neon compatibility
+  NODE_VERSION = "20"
+  NPM_VERSION = "10"
 
 [functions]
   # Directory where Netlify will look for your functions
