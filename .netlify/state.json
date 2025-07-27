@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Kochi",
+			"country": {
+				"code": "IN",
+				"name": "India"
+			},
+			"subdivision": {
+				"code": "KL",
+				"name": "Kerala"
+			},
+			"timezone": "Asia/Kolkata",
+			"latitude": 9.9406,
+			"longitude": 76.2653,
+			"postalCode": "682024"
+		},
+		"timestamp": 1753605872627
+	}
+}
