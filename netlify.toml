@@ -1,12 +1,12 @@
-[build.environment]
-  # Use Node.js 18 LTS for better stability
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
-
 [build]
   base = "/"
   publish = "dist"
   command = "npm install && npm run build"
+
+[build.environment]
+  # Use Node.js 18 LTS for better stability
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
 
 [functions]
   # Directory where Netlify will look for your functions
@@ -22,11 +22,6 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-# Environment variables
-[build.environment]
-  NODE_VERSION = "18"
-  NPM_VERSION = "9"
 
 # Basic security headers
 [[headers]]
