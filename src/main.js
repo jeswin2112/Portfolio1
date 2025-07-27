@@ -317,6 +317,55 @@ function initBackToTop() {
     toggleBackToTop();
 }
 
+// Initialize download button functionality
+function initDownloadButton() {
+    const downloadBtn = document.querySelector('a[download]');
+    if (!downloadBtn) return;
+
+    downloadBtn.addEventListener('click', (e) => {
+        // Show download notification
+        showNotification('Downloading your resume...');
+        
+        // The actual download is handled by the browser's default behavior
+        // We're just adding visual feedback
+    });
+}
+
+// Show notification function
+function showNotification(message) {
+    // Remove any existing notifications
+    const existingNotification = document.querySelector('.download-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'download-notification';
+    notification.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <span>${message}</span>
+    `;
+
+    // Add to DOM
+    document.body.appendChild(notification);
+
+    // Trigger reflow
+    void notification.offsetWidth;
+
+    // Show notification
+    notification.classList.add('show');
+
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        // Remove from DOM after animation completes
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
 // Initialize everything when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize GSAP and ScrollTrigger
@@ -339,6 +388,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize contact form
     initContactForm();
+    
+    // Initialize download button
+    initDownloadButton();
+    
+    // Initialize page animations
+    initPageAnimations();
     
     // Set current year in footer
     const yearElement = document.getElementById('current-year');

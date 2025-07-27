@@ -192,6 +192,38 @@ html.disable-custom-cursor .cursor {
     .footer-link {
         @apply text-gray-400 hover:text-white transition-colors duration-200;
     }
+    
+    /* Download Button Animation */
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+    }
+    
+    .download-btn {
+        @apply relative overflow-hidden;
+    }
+    
+    .download-btn::after {
+        content: '';
+        @apply absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+    }
+    
+    .download-btn i {
+        @apply transition-transform duration-300;
+    }
+    
+    .download-btn:hover i {
+        animation: bounce 0.5s ease infinite;
+    }
+    
+    /* Download Notification */
+    .download-notification {
+        @apply fixed bottom-6 right-6 bg-teal-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center space-x-2;
+    }
+    
+    .download-notification.show {
+        @apply translate-y-0 opacity-100;
+    }
 }
 
 /* Animations */
